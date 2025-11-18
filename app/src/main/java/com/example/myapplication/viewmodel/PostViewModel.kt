@@ -3,9 +3,10 @@ package com.example.myapplication.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.model.Post
-import com.example.myapplication.data.repository.PostRepository
-import kotlin.coroutines.flow.MutableStateFlow
-import kotlin.coroutines.flow.StateFlow
+import com.example.myapplication.repository.PostRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+
 import kotlinx.coroutines.launch
 
 class PostViewMode: ViewModel() {
@@ -21,7 +22,7 @@ class PostViewMode: ViewModel() {
     private fun fetchPosts() {
         viewModelScope.launch {
             try {
-                _postslist.value = repository.getPosts()
+                _postslist.value = repository.getPost()
             } catch (e: Exception) {
                 print("error al obtener los datos: ${e.localizedMessage}")
             }
