@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyApplicationTheme {
-                val postViewModel: com.example.myapplication.viewmodel.PostViewMode = viewModel()
+                val postViewModel: com.example.myapplication.viewmodel.PostViewModel = viewModel()
 
                 PostScreen(viewModel = postViewModel)
             }

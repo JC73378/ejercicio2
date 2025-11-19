@@ -8,13 +8,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.myapplication.viewmodel.PostViewMode
+import com.example.myapplication.viewmodel.PostViewModel
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PostScreen(viewModel: PostViewMode) {
+fun PostScreen(viewModel: PostViewModel) {
 
-    val posts = viewModel.postslist.collectAsState().value
+    val posts = viewModel.postList.collectAsState().value
 
     Scaffold(
         topBar = {
@@ -31,7 +32,7 @@ fun PostScreen(viewModel: PostViewMode) {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
+                    .padding(16.dp)
             ) {
 
                 items(posts) { post ->
